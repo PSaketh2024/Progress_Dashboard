@@ -1,46 +1,62 @@
 import storage as st
-def get_goal(goal_id):
-    data = st.load_json()
-    for goal in data["goals"]:
-        if goal["id"] == goal_id:
-            return goal
-    return None
-#------------------------------------------------------------
-def add_goal():
-    data = st.load_json()
-    title = input("Enter the Goal: ")
-    topics = []
-    n_topics = int(input("Enter number of topics: "))
-    for i in range(n_topics):
-        topic = input(f"Enter the topic {i+1}:")
-        topics.append({"id":i+1,"title":topic,"status":False})
 
+dbm = st.load_json()
+
+
+# Generates new Goal Id
+def goal_g_id(data):
     if len(data["goals"]) == 0:
-        goal_id = 1
-    else :
-        goal_id = data["goals"][-1]["id"]+1
-    data["goals"].append({"id":goal_id,"title":title,"topics":topics})
-    st.store_json(data)
+        return 1
+    max_id = max([goals["id"] for goals in data["goals"]])
+    return max_id+1
+
+#------------------------  Add new Goal
+def add_goal(dbm):
+    title = input("Enter the title: ")
+    goal_id = goal_g_id(dbm)
+    new_goal = {
+        "id":goal_id,
+        "title":title,
+        "Progress":"Not Started"
+    }
+    dbm["goals"].append(new_goal)
     return
-#--------------------------------------------------------------------------
-def veiw_goals():
-    data = st.load_json()
-    print("\n","="*5,    "🎯YourGoals",    "="*5,"\n")
-    if len(data["goals"]) == 0:
-        print("No Goals Found")
+
+# -------------------------- View Goals
+def veiw_goals(dbm):
+    print("\n"+"="*40)
+    print("             YOUR GOALS")
+    print(f"{'ID':<5} {'TITLE':<20} {'STATUS'}")
+    print("-"*40)
+
+    if len(dbm["goals"]) == 0:
+        print("             No Goals available")
         return
-    for goal in data["goals"]:
-        print(goal["id"],   goal["title"])
+    for goal in dbm["goals"]:
+        print(f"{goal["id"]:<5} {goal["title"]:<20} {goal["Progress"]}")
     return
-#----------------------------------------------------------------------
-def veiw_topics(goal_id):
-    goal = get_goal(goal_id)
-    if goal is None:
-        print("Goal not found")
+# ------------------------------- get goal
+def get_goal(dbm):
+    user = int(input("Enter the Id of the goal : "))
+    for goal in dbm["goals"]:
+        if goal["id"] == user:
+            return goal[id]
         return
-    print("="*5,    "Topics",   "="*5)
-    for topic in goal["topics"]:
-        status = "✅" if topic["status"] == True else "❎"
-        print(topic["id"],   topic["title"],    status)
+# ------------------------------ Remove goal
+
+def remove_goal(dbm):
+    user = int(input("Enter the Id of the goal to  remove: "))
+    for goal in dbm["goals"]:
+        if goal["id"] == user:
+            dbm["goals"].remove(goal)
+            return 1
     return
-        
+
+#add_goal(dbm)
+remove_goal(dbm)
+
+
+
+st.store_json(dbm)
+
+
