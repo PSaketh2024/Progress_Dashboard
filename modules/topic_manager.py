@@ -41,11 +41,7 @@ def veiw_topics(goal_id,data):
     for topic in data["topics"][str(goal_id)]:
          print(f"{topic["id"]:<5} {topic["title"]:<20} {topic["Progress"]}")
     return
-import storage as st
-data = st.load_json()
-#add_topic(1,data)
-remove_topic(1,3,data)
-st.store_json(data)
+
 
 
 
