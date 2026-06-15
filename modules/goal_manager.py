@@ -1,6 +1,6 @@
+
 import storage as st
 
-dbm = st.load_json()
 
 
 # Generates new Goal Id
@@ -40,7 +40,7 @@ def get_goal(dbm):
     user = int(input("Enter the Id of the goal : "))
     for goal in dbm["goals"]:
         if goal["id"] == user:
-            return goal[id]
+            return goal["id"]
         return
 # ------------------------------ Remove goal
 
@@ -49,14 +49,17 @@ def remove_goal(dbm):
     for goal in dbm["goals"]:
         if goal["id"] == user:
             dbm["goals"].remove(goal)
+
             return 1
     return
+db = st.load_json()
+add_goal(db)
+st.store_json(db)
 
-#add_goal(dbm)
-remove_goal(dbm)
 
 
 
-st.store_json(dbm)
+
+
 
 

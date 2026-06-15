@@ -1,5 +1,13 @@
 {
-    "goals": [],
-    "topics": [],
-    "tasks": []
+    "goals": [
+        {
+            "id": 1,
+            "title": "ML",
+            "Progress": "Not Started"
+        }
+    ],
+    "topics": {
+        "1": []
+    },
+    "tasks": {}
 }
