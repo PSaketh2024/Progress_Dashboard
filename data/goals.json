@@ -1,31 +1,45 @@
 {
-    "goals": [
-        {
-            "id": 1,
+    "skills": {
+        "1": {
+            "Id": 1,
             "title": "ai",
-            "Progress": "Not Started"
+            "status": 100
         },
-        {
-            "id": 2,
-            "title": "maths",
-            "Progress": "Not Started"
+        "2": {
+            "Id": 2,
+            "title": "a",
+            "status": 100
         }
-    ],
-    "topics": {
+    },
+    "TTD": {
         "1": [
             {
                 "id": 1,
-                "title": "dl",
-                "Progress": "Not started"
+                "ttd": "math",
+                "status": "Completed"
+            },
+            {
+                "id": 2,
+                "ttd": "python",
+                "status": "Completed"
+            },
+            {
+                "id": 3,
+                "ttd": "test",
+                "status": "Completed"
             }
         ],
         "2": [
             {
                 "id": 1,
-                "title": "test_topic",
-                "Progress": "Not started"
+                "ttd": "test",
+                "status": "Completed"
+            },
+            {
+                "id": 2,
+                "ttd": "test2",
+                "status": "Completed"
             }
         ]
-    },
-    "tasks": {}
+    }
 }
