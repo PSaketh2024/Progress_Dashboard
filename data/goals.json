@@ -2,22 +2,30 @@
     "goals": [
         {
             "id": 1,
-            "title": "ML",
+            "title": "ai",
+            "Progress": "Not Started"
+        },
+        {
+            "id": 2,
+            "title": "maths",
             "Progress": "Not Started"
         }
     ],
     "topics": {
-        "1": []
+        "1": [
+            {
+                "id": 1,
+                "title": "dl",
+                "Progress": "Not started"
+            }
+        ],
+        "2": [
+            {
+                "id": 1,
+                "title": "test_topic",
+                "Progress": "Not started"
+            }
+        ]
     },
-    "tasks": {
-        "1": {
-            "1": [
-                {
-                    "id": 2,
-                    "title": "python",
-                    "status": "Not started"
-                }
-            ]
-        }
-    }
+    "tasks": {}
 }
