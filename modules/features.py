@@ -70,15 +70,7 @@ def update(data):
 
 
 #-----------------------------------------------------
-import storage as st
-data = st.load_json()
-#add_skill(data)
-#add_TTD(data,2)
-#remove_skill(data)
-#mark_completed(data,2)
-update(data)
 
-st.store_json(data)
 
         
        

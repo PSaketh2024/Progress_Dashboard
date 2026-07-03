@@ -1,6 +1,6 @@
 import json
 
-FILE_PATH = "data/goals.json"
+FILE_PATH = "data/skills.json"
 
 def load_json():
     with open(FILE_PATH,"r") as file:
